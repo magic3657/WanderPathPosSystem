@@ -1,0 +1,37 @@
+ALTER TABLE charge RENAME TO sqlitestudio_temp_table;
+
+CREATE TABLE charge (charge_no INTEGER NOT NULL, charge_datetime TEXT (12) NOT NULL, charge_clerk TEXT (20) NOT NULL, total_amt INTEGER (10), discount_amt INTEGER (10), paid_amt INTEGER (10), return_amt INTEGER (10), scrap_datetime TEXT (12), meal_no INTEGER (10), remark TEXT (100) DEFAULT 結帳, spec_meal_no TEXT (2000) DEFAULT NULL, seat TEXT (10), customer_amt INTEGER (10) DEFAULT (0));
+
+INSERT INTO charge (charge_no, charge_datetime, charge_clerk, total_amt, discount_amt, paid_amt, return_amt, scrap_datetime, meal_no, remark, spec_meal_no, seat) SELECT charge_no, charge_datetime, charge_clerk, total_amt, discount_amt, paid_amt, return_amt, scrap_datetime, meal_no, remark, spec_meal_no, seat FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+
+--登入記錄檔
+
+CREATE TABLE loginhistory (
+    login_date        TEXT (8)  NOT NULL,
+    login_emp_no      TEXT (20) NOT NULL,
+    login_emp_name    TEXT (20),
+    admin_flag        TEXT (1)  NOT NULL,
+    login_status      TEXT (1),
+    login_fail_reason TEXT (20),
+    login_time        TEXT (4)  NOT NULL,
+    logout_datetime   TEXT (12) 
+);
+
+--交班點帳
+
+CREATE TABLE workoffcharge (
+    work_date      TEXT (8)     NOT NULL,
+    work_emp_no    TEXT (20)    NOT NULL,
+    work_emp_name  TEXT (20),
+    work_amt       INTEGER (10) DEFAULT (0) 
+                                NOT NULL,
+    work_paid_amt  INTEGER (10) NOT NULL
+                                DEFAULT (0),
+    work_total_amt INTEGER (10) DEFAULT (0) 
+                                NOT NULL,
+    work_lost_amt  INTEGER (10) DEFAULT (0),
+    work_time      TEXT (4)     NOT NULL
+);

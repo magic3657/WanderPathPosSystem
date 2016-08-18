@@ -1,4 +1,9 @@
 ﻿Imports System.Data.SQLite
+Imports OnBarcode.Barcode
+Imports System
+Imports System.Collections.Generic
+Imports System.Text
+Imports WindowsApplication1.QREncrypter
 Public Class Form3
     Public Property SourceForm As Form1
 
@@ -332,6 +337,9 @@ Public Class Form3
                                 End If
                             End If
 
+                            '列印電子發票
+                            QRCodePrinter()
+
                             '更新座號資訊
                             UpdateSeatviewerData(ConvertSeatName(Seat.Text.ToString, "CTE"), "PAID", ChargeNo.Text)
 
@@ -645,8 +653,29 @@ Public Class Form3
                 AddHandler PrintDocument3.PrintPage, AddressOf Me.PrintDocument3_PrintPage
                 PrintDocument3.Print()
             End If
-            End If
+        End If
+    End Sub
 
+    '列印電子發票
+    Private Sub QRCodePrinter()
+        '產生電子發票QRCODE加密資訊
+        Dim qrTotal As Integer = 0
+        If (Status = "ModifyOrderData" And return_amt > 0 And nowpaid > 0) Then
+            '加收
+            qrTotal = CInt(ReturnAmt.Text)
+        ElseIf (Not (Status = "ModifyOrderData" And TotalAmt.Text - PaidAmt.Text < 0)) Then
+            '一般
+            qrTotal = CInt(TotalAmt.Text)
+        End If
+
+        Sample.Main(qrTotal)
+
+        '列印電子發票
+        Dim PrintPreviewDialog4 As PrintPreviewDialog = New PrintPreviewDialog
+        Dim PrintDocument4 As Printing.PrintDocument = New Printing.PrintDocument
+        PrintPreviewDialog4.Document = PrintDocument4
+        AddHandler PrintDocument4.PrintPage, AddressOf Me.PrintDocument4_PrintPage
+        PrintDocument4.Print()
     End Sub
 
     '顧客聯資訊
@@ -851,6 +880,39 @@ Public Class Form3
         If (spec_meal_no <> "") Then
             e.Graphics.DrawString(spec_meal_no, New Font("微軟正黑體", 11, FontStyle.Bold), Brushes.Black, 120, 33, StringFormat.GenericTypographic)
         End If
+    End Sub
+
+    '列印電子發票
+    Private Sub PrintDocument4_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs)
+        Dim textTitle As String = ""
+        Dim textOfFile As String = ""
+        Dim textOfOrder As String = ""
+        Dim printDateTitle As String = ""
+        Dim PrintDateTIme As String = ""
+        Dim symbol As String = "-"
+        Dim endArea As String = " "
+        Dim pt As Char = " "
+        'e.Graphics.DrawImage(New Bitmap("D:\3415399007.jpg"), New Point(0, 0))
+        Dim dtNow = DateTime.Now
+        Dim twC = New System.Globalization.TaiwanCalendar()
+        Dim invoiceDate As String = twC.GetYear(dtNow).ToString + dtNow.ToString("MMdd")
+
+        textTitle = "散步路徑" & vbCrLf
+        e.Graphics.DrawString(textTitle, New Font("微軟正黑體", 16, FontStyle.Bold), Brushes.Black, 52, 5, StringFormat.GenericTypographic)
+        textOfFile = "電子發票證明聯 " & vbCrLf
+        e.Graphics.DrawString(textOfFile, New Font("微軟正黑體", 14, FontStyle.Bold), Brushes.Black, 25, 27, StringFormat.GenericTypographic)
+        textOfFile = "105年07-08月" & vbCrLf
+        e.Graphics.DrawString(textOfFile, New Font("微軟正黑體", 14, FontStyle.Bold), Brushes.Black, 25, 49, StringFormat.GenericTypographic)
+        textOfFile = "JL-89182138" & vbCrLf
+        e.Graphics.DrawString(textOfFile, New Font("微軟正黑體", 14, FontStyle.Bold), Brushes.Black, 25, 71, StringFormat.GenericTypographic)
+
+        PrintDateTIme = DateTime.Now.ToString("yyyy-MM-dd") & " " & DateTime.Now.ToString("H:mm:ss") & vbCrLf &
+                        "隨機碼 3669           總計 32" & vbCrLf & "賣方00867657" & vbCrLf
+        e.Graphics.DrawString(PrintDateTIme, New Font("新細明體", 9, FontStyle.Bold), Brushes.Black, 25, 95, StringFormat.GenericTypographic)
+        e.Graphics.DrawString("|||||||||||||||||||||||||||||||||||||", New Font("新細明體", 9, FontStyle.Bold), Brushes.Black, 25, 145, StringFormat.GenericTypographic)
+        e.Graphics.DrawImage(New Bitmap(Environment.CurrentDirectory & "\qrfile\123.gif"), New Point(5, 160))
+        e.Graphics.DrawImage(New Bitmap(Environment.CurrentDirectory & "\qrfile\123.gif"), New Point(110, 160))
+
     End Sub
 
     '檢查飲料列印資料

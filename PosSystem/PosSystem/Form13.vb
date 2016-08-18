@@ -3,6 +3,8 @@ Imports OnBarcode.Barcode
 Imports System
 Imports System.Collections.Generic
 Imports System.Text
+Imports WindowsApplication1.QREncrypter
+
 
 Public Class Form_WorkOff
     Public Property SourceForm As Form_Seat
@@ -19,7 +21,7 @@ Public Class Form_WorkOff
         Me.Show()
         Application.DoEvents()
         WorkPaidAmt.Focus()
-       
+
         'System.Diagnostics.Process.Start("cmd", "c:\Program Files\electric\tool\genKey.bat")
 
     End Sub
@@ -311,10 +313,10 @@ Public Class Form_WorkOff
         'End If
 
         'create QRCode method B
-        Dim batFilePath As String = Environment.CurrentDirectory & "\qrfile\QRCode.bat"
-        MsgBox(batFilePath)
-        System.Diagnostics.Process.Start("cmd", "/k " & batFilePath)
-
+        'Dim batFilePath As String = Environment.CurrentDirectory & "\qrfile\QRCode.bat"
+        'MsgBox(batFilePath)
+        'System.Diagnostics.Process.Start("cmd", "/k " & batFilePath)
+        Sample.Main(240)
     End Sub
 
     Public Function genericQRCodeMethodA() As Boolean
@@ -375,5 +377,5 @@ Public Class Form_WorkOff
         Return True
     End Function
 
- 
+
 End Class

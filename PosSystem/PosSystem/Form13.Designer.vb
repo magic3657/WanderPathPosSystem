@@ -330,7 +330,6 @@ Partial Class Form_WorkOff
         Me.general.TabIndex = 118
         Me.general.Text = "產生"
         Me.general.UseVisualStyleBackColor = True
-        Me.general.Visible = False
         '
         'TextBox1
         '

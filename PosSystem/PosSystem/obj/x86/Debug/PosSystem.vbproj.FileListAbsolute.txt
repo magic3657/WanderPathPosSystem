@@ -54,3 +54,27 @@ C:\Users\宗霖\Documents\Visual Studio 2013\Projects\PosSystem\PosSystem\bin\De
 C:\Users\宗霖\Documents\Visual Studio 2013\Projects\PosSystem\PosSystem\bin\Debug\WanderPath.xml
 C:\Users\宗霖\Documents\Visual Studio 2013\Projects\PosSystem\PosSystem\obj\x86\Debug\PosSystem.vbprojResolveAssemblyReference.cache
 C:\Users\宗霖\Documents\Visual Studio 2013\Projects\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form_WorkOff.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WanderPath.exe
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WanderPath.xml
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WanderPath.pdb
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\bin\Debug\WanderPath.exe
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\bin\Debug\WanderPath.pdb
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\bin\Debug\WanderPath.xml
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\PosSystem.vbprojResolveAssemblyReference.cache
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form1.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form_WorkOff.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form10.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form11.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form_Seat.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form2.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form3.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form4.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form5.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form6.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.ShowPriceDetail.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form8.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Form9.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\obj\x86\Debug\PosSystem.vbproj.GenerateResource.Cache
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\bin\Debug\OnBarcode.Barcode.WinForms.dll
+C:\Users\宗霖\Documents\WanderPathPosSystem\PosSystem\PosSystem\bin\Debug\QREncrypter.dll

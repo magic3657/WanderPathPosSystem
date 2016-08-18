@@ -1,0 +1,1 @@
+C:\QREncrypter.exe C:\test.txt > C:\QRCode.txt

@@ -52,6 +52,12 @@
     <ApplicationIcon>10.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OnBarcode.Barcode.WinForms">
+      <HintPath>..\..\..\..\Desktop\OnBarcode.BarcodeGenerator.DotnetSuite\OnBarcode.Barcode.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="QREncrypter">
+      <HintPath>..\..\..\..\Desktop\加解密工具\dll\MS.Net\QREncrypter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">

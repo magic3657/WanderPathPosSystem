@@ -930,11 +930,14 @@ Public Class Form3
         DrinkSugarDataView.Rows.Add(New String() {"無糖"})
 
         'Ice
-        DrinkIceDataView.Rows.Add(New String() {"正常"})
-        DrinkIceDataView.Rows.Add(New String() {"少冰"})
-        DrinkIceDataView.Rows.Add(New String() {"微冰"})
-        DrinkIceDataView.Rows.Add(New String() {"去冰"})
-        DrinkIceDataView.Rows.Add(New String() {"溫"})
+        '20160818 選項變更: 冰/熱
+        'DrinkIceDataView.Rows.Add(New String() {"正常"})
+        'DrinkIceDataView.Rows.Add(New String() {"少冰"})
+        'DrinkIceDataView.Rows.Add(New String() {"微冰"})
+        'DrinkIceDataView.Rows.Add(New String() {"去冰"})
+        'DrinkIceDataView.Rows.Add(New String() {"溫"})
+        'DrinkIceDataView.Rows.Add(New String() {"熱"})
+        DrinkIceDataView.Rows.Add(New String() {"冰"})
         DrinkIceDataView.Rows.Add(New String() {"熱"})
 
         '列出其它商品MENU
@@ -1120,8 +1123,9 @@ Public Class Form3
         Dim DrinkMark As String = ""
 
         If (form_type = "Drink") Then
-            DrinkMark = DrinkSugarDataView.Rows(DrinkSugarDataView.SelectedRows(0).Index).Cells.Item("DrinkSugar").Value.ToString() & "／" &
-                        DrinkIceDataView.Rows(DrinkIceDataView.SelectedRows(0).Index).Cells.Item("DrinkIce").Value.ToString()
+            'DrinkMark = DrinkSugarDataView.Rows(DrinkSugarDataView.SelectedRows(0).Index).Cells.Item("DrinkSugar").Value.ToString() & "／" &
+            '           DrinkIceDataView.Rows(DrinkIceDataView.SelectedRows(0).Index).Cells.Item("DrinkIce").Value.ToString()
+            DrinkMark = "／" & DrinkIceDataView.Rows(DrinkIceDataView.SelectedRows(0).Index).Cells.Item("DrinkIce").Value.ToString()
         End If
 
         If (form_type <> "Drink") Then

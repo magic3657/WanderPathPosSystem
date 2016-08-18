@@ -382,7 +382,7 @@ Partial Class Form3
         Me.DrinkSugarDataView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle17
         Me.DrinkSugarDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DrinkSugarDataView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DrinkSugar})
-        Me.DrinkSugarDataView.Location = New System.Drawing.Point(331, 402)
+        Me.DrinkSugarDataView.Location = New System.Drawing.Point(402, 402)
         Me.DrinkSugarDataView.Name = "DrinkSugarDataView"
         Me.DrinkSugarDataView.ReadOnly = True
         Me.DrinkSugarDataView.RowHeadersVisible = False
@@ -392,6 +392,7 @@ Partial Class Form3
         Me.DrinkSugarDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DrinkSugarDataView.Size = New System.Drawing.Size(72, 152)
         Me.DrinkSugarDataView.TabIndex = 55
+        Me.DrinkSugarDataView.Visible = False
         '
         'DrinkSugar
         '
@@ -418,7 +419,7 @@ Partial Class Form3
         Me.DrinkIceDataView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle19
         Me.DrinkIceDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DrinkIceDataView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DrinkIce})
-        Me.DrinkIceDataView.Location = New System.Drawing.Point(402, 402)
+        Me.DrinkIceDataView.Location = New System.Drawing.Point(331, 402)
         Me.DrinkIceDataView.Name = "DrinkIceDataView"
         Me.DrinkIceDataView.ReadOnly = True
         Me.DrinkIceDataView.RowHeadersVisible = False
@@ -807,17 +808,18 @@ Partial Class Form3
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Microsoft JhengHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label22.Location = New System.Drawing.Point(335, 376)
+        Me.Label22.Location = New System.Drawing.Point(406, 376)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(48, 24)
         Me.Label22.TabIndex = 81
         Me.Label22.Text = "甜度"
+        Me.Label22.Visible = False
         '
         'Label21
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft JhengHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label21.Location = New System.Drawing.Point(406, 376)
+        Me.Label21.Location = New System.Drawing.Point(335, 376)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(48, 24)
         Me.Label21.TabIndex = 80

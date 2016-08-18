@@ -54,6 +54,8 @@ Partial Class Form_WorkOff
         Me.ShowLostAmt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ShowWorkTotalAmt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ShowWorkTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.general = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.ShowDataView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -88,7 +90,7 @@ Partial Class Form_WorkOff
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft JhengHei", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(733, 24)
+        Me.Label3.Location = New System.Drawing.Point(725, 9)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(320, 28)
         Me.Label3.TabIndex = 110
@@ -315,6 +317,33 @@ Partial Class Form_WorkOff
         Me.ShowWorkTime.Name = "ShowWorkTime"
         Me.ShowWorkTime.ReadOnly = True
         '
+        'general
+        '
+        Me.general.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.general.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.general.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.general.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.general.Font = New System.Drawing.Font("Microsoft JhengHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.general.Location = New System.Drawing.Point(725, 37)
+        Me.general.Name = "general"
+        Me.general.Size = New System.Drawing.Size(45, 33)
+        Me.general.TabIndex = 118
+        Me.general.Text = "產生"
+        Me.general.UseVisualStyleBackColor = True
+        Me.general.Visible = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft JhengHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.TextBox1.ForeColor = System.Drawing.Color.Navy
+        Me.TextBox1.ImeMode = System.Windows.Forms.ImeMode.Alpha
+        Me.TextBox1.Location = New System.Drawing.Point(776, 36)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(267, 33)
+        Me.TextBox1.TabIndex = 119
+        '
         'Form_WorkOff
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -322,6 +351,8 @@ Partial Class Form_WorkOff
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(1068, 297)
         Me.ControlBox = False
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.general)
         Me.Controls.Add(Me.ShowDataView)
         Me.Controls.Add(Me.WorkTotalAmt)
         Me.Controls.Add(Me.Label4)
@@ -364,4 +395,6 @@ Partial Class Form_WorkOff
     Friend WithEvents ShowLostAmt As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ShowWorkTotalAmt As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ShowWorkTime As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents general As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
 End Class

@@ -1,4 +1,8 @@
 ﻿Imports System.Data.SQLite
+Imports OnBarcode.Barcode
+Imports System
+Imports System.Collections.Generic
+Imports System.Text
 
 Public Class Form_WorkOff
     Public Property SourceForm As Form_Seat
@@ -15,6 +19,8 @@ Public Class Form_WorkOff
         Me.Show()
         Application.DoEvents()
         WorkPaidAmt.Focus()
+       
+        'System.Diagnostics.Process.Start("cmd", "c:\Program Files\electric\tool\genKey.bat")
 
     End Sub
 
@@ -294,4 +300,80 @@ Public Class Form_WorkOff
         End If
 
     End Sub
+
+
+    Public Shared Property CurrentDirectory As String
+
+    Private Sub general_Click(sender As Object, e As EventArgs) Handles general.Click
+        'create QRCode method A
+        'If (genericQRCodeMethodA()) Then
+        'MsgBox("產生QRCODE成功")
+        'End If
+
+        'create QRCode method B
+        Dim batFilePath As String = Environment.CurrentDirectory & "\qrfile\QRCode.bat"
+        MsgBox(batFilePath)
+        System.Diagnostics.Process.Start("cmd", "/k " & batFilePath)
+
+    End Sub
+
+    Public Function genericQRCodeMethodA() As Boolean
+        Try
+            Dim barcode As QRCode = New QRCode
+            MsgBox(Environment.CurrentDirectory & "\qrfile\123.gif")
+            ' QRCode Barcode Basic Settings
+
+            '   QRCode Valid data char set:
+            '         numeric data (digits 0 - 9);  
+            '         alphanumeric data (digits 0 - 9; upper case letters A -Z;
+            '         nine other characters: space, $ % * + - . / : );
+            '         byte data (default: ISO/IEC 8859-1);
+            '         Kanji(characters)
+            barcode.Data = "112233445566"
+
+            barcode.DataMode = QRCodeDataMode.Auto
+            barcode.Version = QRCodeVersion.V1
+            barcode.ECL = QRCodeECL.L
+
+            '  Set the ProcessTilde property to true, if you want use the tilde character "~" 
+            '  to specify special characters in the input data. Default is false.
+            '
+            '  1) 1-byte character: ~0dd/~1dd/~2dd (character value from 000 ~ 255);
+            '       ASCII character '~' is presented by ~126;Strings from "~256" to "~299" are unused
+            '       modified to FS, GS, RS and US respectively.
+            '  2) 2-byte character (Unicode): ~6ddddd (character value from 00000 ~ 65535)
+            '         Strings from "~665536" to "~699999" are unused
+            '  3) for GS1 AI Code: 
+            '         ~ai2: AI with 2 digits
+            '         ~ai3: AI with 3 digits
+            '         ~ai4: AI with 4 digits
+            '         ~ai5: AI with 5 digits
+            '         ~ai6: AI with 6 digits
+            '         ~ai7: AI with 7 digits
+            '  4) ECI: ~7dddddd (valid value of dddddd from 000000 to 999999)
+            '  5) SJIS: from ~9ddddd (Shift JIS 0x8140 ~ 0x9FFC and 0xE040 ~ 0xEBBF)
+            barcode.ProcessTilde = True
+
+            ' Barcode Size Related Settings
+            barcode.UOM = UnitOfMeasure.PIXEL
+            barcode.X = 3
+            barcode.LeftMargin = 0
+            barcode.RightMargin = 0
+            barcode.TopMargin = 0
+            barcode.BottomMargin = 0
+            barcode.Resolution = 96
+            barcode.Rotate = Rotate.Rotate0
+
+            ' Image format setting
+            barcode.ImageFormat = System.Drawing.Imaging.ImageFormat.Gif()
+
+            barcode.drawBarcode(Environment.CurrentDirectory & "\qrfile\123.gif")
+        Catch ex As Exception
+            Return False
+        End Try
+
+        Return True
+    End Function
+
+ 
 End Class

@@ -316,7 +316,7 @@ Public Class Form_WorkOff
         'Dim batFilePath As String = Environment.CurrentDirectory & "\qrfile\QRCode.bat"
         'MsgBox(batFilePath)
         'System.Diagnostics.Process.Start("cmd", "/k " & batFilePath)
-        Sample.Main(240)
+        Sample.Main("JL89182138", 240)
     End Sub
 
     Public Function genericQRCodeMethodA() As Boolean

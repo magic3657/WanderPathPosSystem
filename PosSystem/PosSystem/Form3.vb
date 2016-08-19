@@ -660,6 +660,7 @@ Public Class Form3
     Private Sub QRCodePrinter()
         '產生電子發票QRCODE加密資訊
         Dim qrTotal As Integer = 0
+        Dim qrNumber As String = "JL89182138"
         If (Status = "ModifyOrderData" And return_amt > 0 And nowpaid > 0) Then
             '加收
             qrTotal = CInt(ReturnAmt.Text)
@@ -668,7 +669,7 @@ Public Class Form3
             qrTotal = CInt(TotalAmt.Text)
         End If
 
-        Sample.Main(qrTotal)
+        Sample.Main(qrNumber, qrTotal)
 
         '列印電子發票
         Dim PrintPreviewDialog4 As PrintPreviewDialog = New PrintPreviewDialog
@@ -897,21 +898,39 @@ Public Class Form3
         Dim twC = New System.Globalization.TaiwanCalendar()
         Dim invoiceDate As String = twC.GetYear(dtNow).ToString + dtNow.ToString("MMdd")
 
+        '取得圖檔路徑
+        'BARCODE
+        Dim getBrFolder As String = "\brfile\"
+        Dim getBrFileName As String = "brimage.gif"
+        'QRCODE
+        Dim getQrFolder As String = "\qrfile\"
+        Dim getQrFileName As String = "qrimage.gif"
+
+        Dim qrTotal As Integer = 0
+
+        If (Status = "ModifyOrderData" And return_amt > 0 And nowpaid > 0) Then
+            '加收
+            qrTotal = CInt(ReturnAmt.Text)
+        ElseIf (Not (Status = "ModifyOrderData" And TotalAmt.Text - PaidAmt.Text < 0)) Then
+            '一般
+            qrTotal = CInt(TotalAmt.Text)
+        End If
+
         textTitle = "散步路徑" & vbCrLf
-        e.Graphics.DrawString(textTitle, New Font("微軟正黑體", 16, FontStyle.Bold), Brushes.Black, 52, 5, StringFormat.GenericTypographic)
+        e.Graphics.DrawString(textTitle, New Font("微軟正黑體", 12, FontStyle.Bold), Brushes.Black, 68, 5, StringFormat.GenericTypographic)
         textOfFile = "電子發票證明聯 " & vbCrLf
-        e.Graphics.DrawString(textOfFile, New Font("微軟正黑體", 14, FontStyle.Bold), Brushes.Black, 25, 27, StringFormat.GenericTypographic)
+        e.Graphics.DrawString(textOfFile, New Font("微軟正黑體", 15, FontStyle.Bold), Brushes.Black, 30, 27, StringFormat.GenericTypographic)
         textOfFile = "105年07-08月" & vbCrLf
-        e.Graphics.DrawString(textOfFile, New Font("微軟正黑體", 14, FontStyle.Bold), Brushes.Black, 25, 49, StringFormat.GenericTypographic)
+        e.Graphics.DrawString(textOfFile, New Font("微軟正黑體", 16, FontStyle.Bold), Brushes.Black, 30, 49, StringFormat.GenericTypographic)
         textOfFile = "JL-89182138" & vbCrLf
-        e.Graphics.DrawString(textOfFile, New Font("微軟正黑體", 14, FontStyle.Bold), Brushes.Black, 25, 71, StringFormat.GenericTypographic)
+        e.Graphics.DrawString(textOfFile, New Font("微軟正黑體", 16, FontStyle.Bold), Brushes.Black, 30, 71, StringFormat.GenericTypographic)
 
         PrintDateTIme = DateTime.Now.ToString("yyyy-MM-dd") & " " & DateTime.Now.ToString("H:mm:ss") & vbCrLf &
-                        "隨機碼 3669           總計 32" & vbCrLf & "賣方00867657" & vbCrLf
+                        "隨機碼 3669           總計 $" & qrTotal & "   " & vbCrLf & "賣方00867657" & vbCrLf
         e.Graphics.DrawString(PrintDateTIme, New Font("新細明體", 9, FontStyle.Bold), Brushes.Black, 25, 95, StringFormat.GenericTypographic)
-        e.Graphics.DrawString("|||||||||||||||||||||||||||||||||||||", New Font("新細明體", 9, FontStyle.Bold), Brushes.Black, 25, 145, StringFormat.GenericTypographic)
-        e.Graphics.DrawImage(New Bitmap(Environment.CurrentDirectory & "\qrfile\123.gif"), New Point(5, 160))
-        e.Graphics.DrawImage(New Bitmap(Environment.CurrentDirectory & "\qrfile\123.gif"), New Point(110, 160))
+        e.Graphics.DrawImage(New Bitmap(Environment.CurrentDirectory & getBrFolder & getBrFileName), New Point(5, 125))
+        e.Graphics.DrawImage(New Bitmap(Environment.CurrentDirectory & getQrFolder & getQrFileName), New Point(5, 160))
+        e.Graphics.DrawImage(New Bitmap(Environment.CurrentDirectory & getQrFolder & getQrFileName), New Point(115, 160))
 
     End Sub
 

@@ -52,11 +52,13 @@
     <ApplicationIcon>10.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OnBarcode.Barcode.WinForms">
-      <HintPath>..\..\..\..\Desktop\OnBarcode.BarcodeGenerator.DotnetSuite\OnBarcode.Barcode.WinForms.dll</HintPath>
+    <Reference Include="OnBarcode.Barcode.WinForms, Version=6.0.0.41022, Culture=neutral, PublicKeyToken=4da8d7f865f70e30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OnBarcode.Barcode.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="QREncrypter">
-      <HintPath>..\..\..\..\Desktop\加解密工具\dll\MS.Net\QREncrypter.dll</HintPath>
+    <Reference Include="QREncrypter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\QREncrypter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

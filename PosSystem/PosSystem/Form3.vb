@@ -915,7 +915,7 @@ Public Class Form3
             '一般
             qrTotal = CInt(TotalAmt.Text)
         End If
-
+        'remark
         textTitle = "散步路徑" & vbCrLf
         e.Graphics.DrawString(textTitle, New Font("微軟正黑體", 12, FontStyle.Bold), Brushes.Black, 68, 5, StringFormat.GenericTypographic)
         textOfFile = "電子發票證明聯 " & vbCrLf
